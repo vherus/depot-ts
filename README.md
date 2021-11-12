@@ -5,7 +5,7 @@
 Let's say you have an app where you can create Users in a database. You can create a command for that:
 
 ```ts
-import { Command, Handler, Registry, Depot } from 'depot';
+import { Command, Handler, Registry, Depot } from 'depot-command-bus';
 
 class CreateUser implements Command {
     private _username: string;
