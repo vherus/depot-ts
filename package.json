@@ -1,6 +1,6 @@
 {
-  "name": "depot",
-  "version": "0.1.0",
+  "name": "depot-command-bus",
+  "version": "1.0.0",
   "description": "A light weight Command Bus for TypeScript apps.",
   "repository": {
     "type": "git",
