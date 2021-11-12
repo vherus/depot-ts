@@ -1,14 +1,12 @@
 # Depot
 
-Todo: instructions
-
-For now, here's the basics...
-
-`Depot` is a command bus that resolves commands to a relevant handler and then executes logic. This is very useful for decoupling your application.
+**Depot** is a command bus that resolves commands to a relevant handler and then executes logic. This is very useful for decoupling your application.
 
 Let's say you have an app where you can create Users in a database. You can create a command for that:
 
-```
+```ts
+import { Command, Handler, Registry, Depot } from 'depot';
+
 class CreateUser implements Command {
     private _username: string;
     private _email: string;
@@ -29,7 +27,7 @@ class CreateUser implements Command {
 
 Next, you'll create the handler that does the creation:
 
-```
+```ts
 class CreateUserHandler implements Handler {
     private dbClient: SomeDbClient;
 
@@ -46,12 +44,14 @@ class CreateUserHandler implements Handler {
 
 Depot uses a `Registry` to map commands to handlers. The `Registry` takes an array of tuples, using the command name as [0] and the handler as [1]:
 
-```
+```ts
 const registry = new Registry([
     ['CreateUser', new CreateUserHandler(yourDbClient)]
 ]);
 
 const commandBus = new Depot(registry);
 
-const createdUser = await commandBus.dispatch(new CreateUser('nathan', 'nathan@nathan.com'));
+const cmd = new CreateUser('nathan', 'nathan@nathan.com');
+
+const createdUser = await commandBus.dispatch(cmd);
 ```
