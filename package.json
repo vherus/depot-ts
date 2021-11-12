@@ -1,0 +1,24 @@
+{
+  "name": "depot",
+  "version": "0.1.0",
+  "description": "A light weight Command Bus for TypeScript apps.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vherus/depot-ts.git"
+  },
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "scripts": {
+    "prepare": "npx tsc"
+  },
+  "keywords": [
+    "command bus",
+    "util"
+  ],
+  "author": "Nathan King",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.4.4"
+  },
+  "dependencies": {}
+}
